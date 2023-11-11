@@ -25,7 +25,8 @@ struct MonoTestAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+        FullMapView()
         }
         .modelContainer(sharedModelContainer)
     }
