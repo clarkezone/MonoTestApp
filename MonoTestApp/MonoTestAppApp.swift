@@ -26,7 +26,9 @@ struct MonoTestAppApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-        FullMapView()
+         if #available(iOS 17.0, *) {
+            FullMapView()
+         }
         }
         .modelContainer(sharedModelContainer)
     }

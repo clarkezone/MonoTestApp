@@ -2,12 +2,9 @@ import SwiftUI
 import MapKit
 import Foundation
 
-
-
 struct MapView: View {
 //    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @Binding public var currentRegion: MKCoordinateRegion
-
 
     var body: some View{
         Map(coordinateRegion: $currentRegion).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -28,12 +25,13 @@ struct GeoQueryArguments : Codable {
     var QueryEnd: Date?
 }
 
+@available(iOS 17.0, *)
 struct FullMapView: View {
     @State private var startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
     @State private var endDate = Date()
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @State private var poi: [MKMapItem] = []
-    //    @Binding var poi: [MKMapItem]
+    @State private var position: MapCameraPosition = .automatic
     
     func getpoints () {
         self.poi = []
@@ -95,7 +93,9 @@ struct FullMapView: View {
             await MainActor.run {
                 print("async")
                 if (answer.count>0) {
-                    self.poi.append(MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon))))
+                    var mostrecent = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon)))
+                    mostrecent.name="Most recent"
+                    self.poi.append(mostrecent)
                     self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
                 }
             }
@@ -105,8 +105,7 @@ struct FullMapView: View {
     }
 
     var body: some View {
-            if #available(iOS 17.0, *) {
-                Map {
+                Map(position: $position) {
                     ForEach (poi, id: \.self) { result in
                                                     Marker(item: result)
                     }
@@ -129,23 +128,6 @@ struct FullMapView: View {
                             }.padding(.top)
                             Spacer()
                         }.background(.thinMaterial)
-                        
-                      
-                    } 
-            } else {
-                VStack {
-                    MapView(currentRegion: $region)
-                    DatePicker("Start", selection: $startDate)
-                    DatePicker("End", selection: $endDate)
-                    HStack {
-                        Button(action: getpoints) {
-                            Text("Get")
-                        }.buttonStyle(.borderedProminent)
-                        Button(action: lasthour) {
-                            Text("Last hour")
-                        }.buttonStyle(.borderedProminent)
-                    }
-                }
+                    }.onChange(of: poi){position = .automatic}
             }
-    }
 }
