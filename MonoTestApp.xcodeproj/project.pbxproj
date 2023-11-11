@@ -15,6 +15,7 @@
 		9C89EA762AF9A8E200E794FA /* MonoTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA752AF9A8E200E794FA /* MonoTestAppTests.swift */; };
 		9C89EA802AF9A8E200E794FA /* MonoTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */; };
 		9C89EA822AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */; };
+		9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2AC0A2B0000D800695B5D /* mapviewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9C89EA7B2AF9A8E200E794FA /* MonoTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppUITests.swift; sourceTree = "<group>"; };
 		9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9CD2AC0A2B0000D800695B5D /* mapviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapviewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		9C89EA5F2AF9A8E100E794FA /* MonoTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				9CD2AC0A2B0000D800695B5D /* mapviewer.swift */,
 				9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */,
 				9C89EA622AF9A8E100E794FA /* ContentView.swift */,
 				9C89EA642AF9A8E100E794FA /* Item.swift */,
@@ -266,6 +269,7 @@
 			files = (
 				9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */,
 				9C89EA652AF9A8E100E794FA /* Item.swift in Sources */,
+				9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */,
 				9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
