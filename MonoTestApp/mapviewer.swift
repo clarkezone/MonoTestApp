@@ -90,6 +90,14 @@ struct FullMapView: View {
             
             let answer = try decoder.decode([GeoPoint].self, from: respdata)
             print(answer.count)
+            
+            var path: [CLLocationCoordinate2D] = []
+            for thing in answer {
+                path.append(CLLocationCoordinate2D(latitude: thing.lat, longitude: thing.lon))
+            }
+            
+            var poly = MapPolyline(coordinates: path, contourStyle: .geodesic)
+            
             await MainActor.run {
                 print("async")
                 if (answer.count>0) {
@@ -97,6 +105,7 @@ struct FullMapView: View {
                     mostrecent.name="Most recent"
                     self.poi.append(mostrecent)
                     self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+            
                 }
             }
         } catch {
