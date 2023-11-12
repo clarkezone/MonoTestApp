@@ -93,10 +93,10 @@ struct FullMapView: View {
             await MainActor.run {
                 print("async")
                 if (answer.count>0) {
-                    var mostrecent = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon)))
+                    var mostrecent = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon)))
                     mostrecent.name="Most recent"
                     self.poi.append(mostrecent)
-                    self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+                    self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
                 }
             }
         } catch {
