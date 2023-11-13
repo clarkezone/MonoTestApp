@@ -32,9 +32,11 @@ struct FullMapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @State private var poi: [MKMapItem] = []
     @State private var position: MapCameraPosition = .automatic
+    @State private var currentPath: [CLLocationCoordinate2D] = []
     
     func getpoints () {
         self.poi = []
+        self.currentPath = []
         Task {
             await reload()
         }
@@ -95,8 +97,7 @@ struct FullMapView: View {
             for thing in answer {
                 path.append(CLLocationCoordinate2D(latitude: thing.lat, longitude: thing.lon))
             }
-            
-            var poly = MapPolyline(coordinates: path, contourStyle: .geodesic)
+            let pa = path // read only to pass back
             
             await MainActor.run {
                 print("async")
@@ -105,7 +106,7 @@ struct FullMapView: View {
                     mostrecent.name="Most recent"
                     self.poi.append(mostrecent)
                     self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
-            
+                    self.currentPath = pa
                 }
             }
         } catch {
@@ -118,6 +119,11 @@ struct FullMapView: View {
                     ForEach (poi, id: \.self) { result in
                                                     Marker(item: result)
                     }
+                   
+                    if self.currentPath.count>0 {
+                        MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
+                    }
+                    
                 }
                     .mapStyle(.standard(elevation:.realistic))
                     .safeAreaInset(edge: .bottom){
