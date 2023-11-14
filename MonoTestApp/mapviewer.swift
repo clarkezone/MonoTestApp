@@ -48,8 +48,6 @@ struct FullMapView: View {
     }
     
     func reload() async {
-        let now = Date()
-        
         // Get the current timezone and UTC timezone
         let currentTimeZone = TimeZone.current
         
