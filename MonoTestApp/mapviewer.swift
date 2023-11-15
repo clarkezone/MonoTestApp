@@ -32,19 +32,18 @@ struct FullMapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @State private var poi: [MKMapItem] = []
     @State private var position: MapCameraPosition = .automatic
+    @State private var currentPath: [CLLocationCoordinate2D] = []
     @State private var showingPopover = false 
     @State private var popoverText: String = ""
-
-
 
     func lasthour() {
         startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
         endDate = Date()
     }
-
     
     func getNowDetails () {
         self.poi = []
+        self.currentPath = []
         Task {
             await getCurrentDetails()
         }
@@ -76,8 +75,6 @@ struct FullMapView: View {
     }
     
     func reload() async {
-        let now = Date()
-        
         // Get the current timezone and UTC timezone
         let currentTimeZone = TimeZone.current
         
@@ -120,13 +117,21 @@ struct FullMapView: View {
             
             let answer = try decoder.decode([GeoPoint].self, from: respdata)
             print(answer.count)
+            
+            var path: [CLLocationCoordinate2D] = []
+            for thing in answer {
+                path.append(CLLocationCoordinate2D(latitude: thing.lat, longitude: thing.lon))
+            }
+            let pa = path // read only to pass back
+            
             await MainActor.run {
                 print("async")
                 if (answer.count>0) {
-                    var mostrecent = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon)))
+                    var mostrecent = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon)))
                     mostrecent.name="Most recent"
                     self.poi.append(mostrecent)
-                    self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[0].lat, longitude: answer[0].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+                    self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: answer[answer.count-1].lat, longitude: answer[answer.count-1].lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+                    self.currentPath = pa
                 }
             }
         } catch {
@@ -139,6 +144,11 @@ struct FullMapView: View {
                     ForEach (poi, id: \.self) { result in
                                                     Marker(item: result)
                     }
+                   
+                    if self.currentPath.count>0 {
+                        MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
+                    }
+                    
                 }
                     .mapStyle(.standard(elevation:.realistic))
                     .safeAreaInset(edge: .bottom){
