@@ -25,6 +25,13 @@ struct GeoQueryArguments : Codable {
     var QueryEnd: Date?
 }
 
+struct myover : View {
+    @Binding var foo: String
+    var body: some View {
+     Text("\(foo)")   
+    }
+}
+
 @available(iOS 17.0, *)
 struct FullMapView: View {
     @State private var startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
@@ -160,10 +167,8 @@ struct FullMapView: View {
                                 Button(action: getNowDetails) {
                                     Text("Now")
                                 }.buttonStyle(.borderedProminent)
-                                    .popover(isPresented: $showingPopover) {
-                                        Text("\(popoverText)")
-                                            .font(.headline)
-                                            .padding()
+                                  .popover(isPresented: $showingPopover) {
+                                        myover(foo: $popoverText)
                                     }
                             }
                             HStack {
