@@ -32,17 +32,47 @@ struct FullMapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @State private var poi: [MKMapItem] = []
     @State private var position: MapCameraPosition = .automatic
+    @State private var showingPopover = false 
+    @State private var popoverText: String = ""
+
+
+
+    func lasthour() {
+        startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
+        endDate = Date()
+    }
+
+    
+    func getNowDetails () {
+        self.poi = []
+        Task {
+            await getCurrentDetails()
+        }
+    }
+    
+    func getCurrentDetails() async {
+        let url = URL(string: "https://now.clarkezone.dev")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        do {
+            print("request")
+            let (respdata, _) = try await URLSession.shared.data(for: request)
+
+            await MainActor.run {
+            print(String(data: respdata, encoding: .utf8)!)
+                popoverText = String(data: respdata, encoding: .utf8)!
+                showingPopover = true
+            }
+        } catch {
+            print("Error")
+        }
+    }
     
     func getpoints () {
         self.poi = []
         Task {
             await reload()
         }
-    }
-    
-    func lasthour() {
-        startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
-        endDate = Date()
     }
     
     func reload() async {
@@ -115,8 +145,16 @@ struct FullMapView: View {
                         HStack {
                             Spacer()
                             VStack {
-                                DatePicker("Start", selection: $startDate)
-                                DatePicker("End", selection: $endDate)
+                                DatePicker("", selection: $startDate)
+                                DatePicker("", selection: $endDate)
+                                Button(action: getNowDetails) {
+                                    Text("Now")
+                                }.buttonStyle(.borderedProminent)
+                                    .popover(isPresented: $showingPopover) {
+                                        Text("\(popoverText)")
+                                            .font(.headline)
+                                            .padding()
+                                    }
                             }
                             HStack {
                                 Button(action: getpoints) {
@@ -125,7 +163,7 @@ struct FullMapView: View {
                                 Button(action: lasthour) {
                                     Text("Last hour")
                                 }.buttonStyle(.borderedProminent)
-                            }.padding(.top)
+                            }.padding(10)
                             Spacer()
                         }.background(.thinMaterial)
                     }.onChange(of: poi){position = .automatic}
