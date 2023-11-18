@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C57CC7E2B0953EA00F795CB /* BatteryView.swift */; };
 		9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */; };
 		9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA622AF9A8E100E794FA /* ContentView.swift */; };
 		9C89EA652AF9A8E100E794FA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA642AF9A8E100E794FA /* Item.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C57CC7E2B0953EA00F795CB /* BatteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppApp.swift; sourceTree = "<group>"; };
 		9C89EA622AF9A8E100E794FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		9C89EA5F2AF9A8E100E794FA /* MonoTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C57CC7E2B0953EA00F795CB /* BatteryView.swift */,
 				9CD2AC0A2B0000D800695B5D /* mapviewer.swift */,
 				9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */,
 				9C89EA622AF9A8E100E794FA /* ContentView.swift */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */,
+				9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */,
 				9C89EA652AF9A8E100E794FA /* Item.swift in Sources */,
 				9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */,
 				9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */,
