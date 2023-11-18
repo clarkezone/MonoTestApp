@@ -35,20 +35,29 @@ struct myover : View {
 struct NowSitrep: Codable {
     let city, neighborhood, metroArea, phoneStatus: String
     let postal, country, wifi: String
-    let batterylevel: Int
+    let batterylevel: Double
     let timeStamp: Date
 }
 
 struct nowdetails : View {
     @Binding var level: CGFloat
+    @Binding var city: String
+    @Binding var postal: String
+    @Binding var neighborhood: String
+    @Binding var metroarea: String
+    @Binding var phoneStatus: String
+    @Binding var wifi: String
+    @Binding var latestTimestamp: Date
     var body: some View {
-        Circle().fill(.blue)
-        Text("Redmond")
-        Text("98052")
+        Text("\(city)")
+        Text("\(postal)")
+        Text("\(neighborhood)")
+        Text("\(metroarea)")
+        
+        Text("\(latestTimestamp)").multilineTextAlignment(.center)
         BatteryView(batteryLevel: $level).frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 40)
-    }
-    func SetSitrep(sr: NowSitrep) {
-        level = CGFloat(integerLiteral: sr.batterylevel)
+        Text("\(phoneStatus)")
+        Text("\(wifi)")
     }
 }
 
@@ -62,7 +71,14 @@ struct FullMapView: View {
     @State private var currentPath: [CLLocationCoordinate2D] = []
     @State private var showingPopover = false 
     @State private var popoverText: String = ""
-    @State private var lev: CGFloat = 1.0
+    @State private var batteryLevel: CGFloat = 1.0
+    @State private var city: String = ""
+    @State private var neighborhood: String = ""
+    @State private var metroArea: String = ""
+    @State private var phoneStatus: String = ""
+    @State private var postal: String = ""
+    @State private var wifi: String = ""
+    @State private var latestTimestamp: Date = Date.distantPast
 
     func lasthour() {
         startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
@@ -85,19 +101,27 @@ struct FullMapView: View {
             print("request")
             let (respdata, _) = try await URLSession.shared.data(for: request)
             
-            let encoder = JSONDecoder()
-            encoder.dateDecodingStrategy = .iso8601
-            let nowcoords = try encoder.decode(NowSitrep.self, from: respdata)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let nowcoords = try decoder.decode(NowSitrep.self, from: respdata)
 
             await MainActor.run {
             print(String(data: respdata, encoding: .utf8)!)
-                popoverText = String(data: respdata, encoding: .utf8)!
-                lev = CGFloat(integerLiteral: nowcoords.batterylevel)
+            
+                batteryLevel = CGFloat(floatLiteral: nowcoords.batterylevel)
+                city = nowcoords.city
+                neighborhood = nowcoords.neighborhood
+                postal = nowcoords.postal
+                phoneStatus = nowcoords.country
+                wifi = nowcoords.wifi
+                latestTimestamp = nowcoords.timeStamp
+                
                 showingPopover = true
             }
         } catch {
             print("Error")
             popoverText = "\(error)"
+            showingPopover = true
         }
     }
     
@@ -195,9 +219,21 @@ struct FullMapView: View {
                                     Text("Now")
                                 }.buttonStyle(.borderedProminent)
                                   .popover(isPresented: $showingPopover) {
-                                        myover(foo: $popoverText)
-                                        nowdetails(level: $lev)
-                                    }
+                                      VStack {
+                                          myover(foo: $popoverText)
+                                          nowdetails(
+                                            level: $batteryLevel,
+                                            city: $city,
+                                            postal: $postal,
+                                            neighborhood: $neighborhood,
+                                            metroarea: $metroArea,
+                                            phoneStatus: $phoneStatus,
+                                            wifi: $wifi,
+                                            latestTimestamp: $latestTimestamp
+                                          )
+                                      }.frame(minWidth: 300, maxHeight: 400)
+                                          .presentationCompactAdaptation(.popover)
+                                  }
                                     
                             }
                             HStack {
