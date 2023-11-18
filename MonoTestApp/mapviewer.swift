@@ -84,6 +84,10 @@ struct FullMapView: View {
         do {
             print("request")
             let (respdata, _) = try await URLSession.shared.data(for: request)
+            
+            let encoder = JSONDecoder()
+            encoder.dateDecodingStrategy = .iso8601
+            let nowcoords = try encoder.decode(NowSitrep.self, from: respdata)
 
             await MainActor.run {
             print(String(data: respdata, encoding: .utf8)!)
@@ -93,6 +97,7 @@ struct FullMapView: View {
             }
         } catch {
             print("Error")
+            popoverText = "\(error)"
         }
     }
     
