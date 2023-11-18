@@ -32,6 +32,26 @@ struct myover : View {
     }
 }
 
+struct NowSitrep: Codable {
+    let city, neighborhood, metroArea, phoneStatus: String
+    let postal, country, wifi: String
+    let batterylevel: Int
+    let timeStamp: Date
+}
+
+struct nowdetails : View {
+    @Binding var level: CGFloat
+    var body: some View {
+        Circle().fill(.blue)
+        Text("Redmond")
+        Text("98052")
+        BatteryView(batteryLevel: $level).frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 40)
+    }
+    func SetSitrep(sr: NowSitrep) {
+        level = CGFloat(integerLiteral: sr.batterylevel)
+    }
+}
+
 @available(iOS 17.0, *)
 struct FullMapView: View {
     @State private var startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
@@ -42,6 +62,7 @@ struct FullMapView: View {
     @State private var currentPath: [CLLocationCoordinate2D] = []
     @State private var showingPopover = false 
     @State private var popoverText: String = ""
+    @State private var lev: CGFloat = 1.0
 
     func lasthour() {
         startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
@@ -67,6 +88,7 @@ struct FullMapView: View {
             await MainActor.run {
             print(String(data: respdata, encoding: .utf8)!)
                 popoverText = String(data: respdata, encoding: .utf8)!
+                lev = CGFloat(integerLiteral: nowcoords.batterylevel)
                 showingPopover = true
             }
         } catch {
@@ -169,7 +191,9 @@ struct FullMapView: View {
                                 }.buttonStyle(.borderedProminent)
                                   .popover(isPresented: $showingPopover) {
                                         myover(foo: $popoverText)
+                                        nowdetails(level: $lev)
                                     }
+                                    
                             }
                             HStack {
                                 Button(action: getpoints) {
