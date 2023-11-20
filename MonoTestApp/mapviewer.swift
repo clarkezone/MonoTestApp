@@ -88,6 +88,10 @@ struct FullMapView: View {
     func getNowDetails () {
         self.poi = []
         self.currentPath = []
+        
+        let shared: MonoCoreShared = MonoCoreShared()
+        let result = shared.Foo()
+        
         Task {
             await getCurrentDetails()
         }

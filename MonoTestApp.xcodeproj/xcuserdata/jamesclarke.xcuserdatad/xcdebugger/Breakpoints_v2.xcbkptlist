@@ -46,9 +46,9 @@
             filePath = "MonoTestApp/mapviewer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "reload()"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "getNowDetails()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
