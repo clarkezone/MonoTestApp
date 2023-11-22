@@ -32,12 +32,12 @@ struct myover : View {
     }
 }
 
-struct NowSitrep: Codable {
-    let city, neighborhood, metroArea, phoneStatus: String
-    let postal, country, wifi: String
-    let batterylevel: Double
-    let timeStamp: Date
-}
+//struct NowSitrep: Codable {
+//    let city, neighborhood, metroArea, phoneStatus: String
+//    let postal, country, wifi: String
+//    let batterylevel: Double
+//    let timeStamp: Date
+//}
 
 struct nowdetails : View {
     @Binding var level: CGFloat
