@@ -15,41 +15,17 @@ struct NowSitrep: Codable {
 }
 
 struct MonoCoreShared {
-    public func Foo() -> String {
-        
-        return "Thing"
-    }
     
-    func getCurrentDetails() async {
+    func getCurrentDetails() async throws -> NowSitrep {
         let url = URL(string: "https://now.clarkezone.dev")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        do {
-            print("request")
-            let (respdata, _) = try await URLSession.shared.data(for: request)
-            
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            let nowcoords = try decoder.decode(NowSitrep.self, from: respdata)
-
-            await MainActor.run {
-            print(String(data: respdata, encoding: .utf8)!)
-            
-//                batteryLevel = CGFloat(floatLiteral: nowcoords.batterylevel)
-//                city = nowcoords.city
-//                neighborhood = nowcoords.neighborhood
-//                postal = nowcoords.postal
-//                phoneStatus = nowcoords.country
-//                wifi = nowcoords.wifi
-//                latestTimestamp = nowcoords.timeStamp
-//                
-//                showingPopover = true
-            }
-        } catch {
-            print("Error")
-            //popoverText = "\(error)"
-            //showingPopover = true
-        }
+        let (respdata, _) = try await URLSession.shared.data(for: request)
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let nowcoords = try decoder.decode(NowSitrep.self, from: respdata)
+        return nowcoords
     }
     
 }
