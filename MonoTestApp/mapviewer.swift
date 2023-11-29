@@ -32,13 +32,6 @@ struct myover : View {
     }
 }
 
-//struct NowSitrep: Codable {
-//    let city, neighborhood, metroArea, phoneStatus: String
-//    let postal, country, wifi: String
-//    let batterylevel: Double
-//    let timeStamp: Date
-//}
-
 struct nowdetails : View {
     @Binding var level: CGFloat
     @Binding var city: String
@@ -79,6 +72,10 @@ struct FullMapView: View {
     @State private var postal: String = ""
     @State private var wifi: String = ""
     @State private var latestTimestamp: Date = Date.distantPast
+    
+    //extract
+    @State private var showingEditPopover = false 
+    @State var sliderPosition: ClosedRange<Float> = 3...8
 
     func lasthour() {
         startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
@@ -111,48 +108,19 @@ struct FullMapView: View {
                 popoverText = "\(error)"
                 showingPopover = true
             }
-            
-            //await getCurrentDetails()
         }
     }
-    
-//    func getCurrentDetails() async {
-//        let url = URL(string: "https://now.clarkezone.dev")!
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//        do {
-//            print("request")
-//            let (respdata, _) = try await URLSession.shared.data(for: request)
-//            
-//            let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .iso8601
-//            let nowcoords = try decoder.decode(NowSitrep.self, from: respdata)
-//
-//            await MainActor.run {
-//            print(String(data: respdata, encoding: .utf8)!)
-//            
-//                batteryLevel = CGFloat(floatLiteral: nowcoords.batterylevel)
-//                city = nowcoords.city
-//                neighborhood = nowcoords.neighborhood
-//                postal = nowcoords.postal
-//                phoneStatus = nowcoords.country
-//                wifi = nowcoords.wifi
-//                latestTimestamp = nowcoords.timeStamp
-//                
-//                showingPopover = true
-//            }
-//        } catch {
-//            print("Error")
-//            popoverText = "\(error)"
-//            showingPopover = true
-//        }
-//    }
+
     
     func getpoints () {
         self.poi = []
         Task {
             await reload()
         }
+    }
+    
+    func editPoints(){
+        showingEditPopover = true   
     }
     
     func reload() async {
@@ -257,6 +225,12 @@ struct FullMapView: View {
                                       }.frame(minWidth: 300, maxHeight: 400)
                                           .presentationCompactAdaptation(.popover)
                                   }
+                                Button(action: editPoints) {
+                                        Text("Edit")
+                                    }.buttonStyle(.borderedProminent)
+                                        .popover(isPresented: $showingEditPopover) {
+                                    RangedSliderView(value: $sliderPosition, bounds: 1...10)
+                                        }
                                     
                             }
                             HStack {
