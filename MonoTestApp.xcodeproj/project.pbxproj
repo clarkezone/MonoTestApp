@@ -16,6 +16,16 @@
 		9C89EA762AF9A8E200E794FA /* MonoTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA752AF9A8E200E794FA /* MonoTestAppTests.swift */; };
 		9C89EA802AF9A8E200E794FA /* MonoTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */; };
 		9C89EA822AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */; };
+		9C9B089A2B0B1BD400D8831F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B08992B0B1BD400D8831F /* WidgetKit.framework */; };
+		9C9B089C2B0B1BD400D8831F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B089B2B0B1BD400D8831F /* SwiftUI.framework */; };
+		9C9B089F2B0B1BD400D8831F /* MonoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B089E2B0B1BD400D8831F /* MonoWidgetBundle.swift */; };
+		9C9B08A12B0B1BD400D8831F /* MonoWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08A02B0B1BD400D8831F /* MonoWidgetLiveActivity.swift */; };
+		9C9B08A32B0B1BD400D8831F /* MonoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08A22B0B1BD400D8831F /* MonoWidget.swift */; };
+		9C9B08A52B0B1BD400D8831F /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08A42B0B1BD400D8831F /* AppIntent.swift */; };
+		9C9B08A72B0B1BD400D8831F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B08A62B0B1BD400D8831F /* Assets.xcassets */; };
+		9C9B08AB2B0B1BD400D8831F /* MonoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9C9B08B12B0B1BFC00D8831F /* MonoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */; };
+		9C9B08B22B0B1BFC00D8831F /* MonoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */; };
 		9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2AC0A2B0000D800695B5D /* mapviewer.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +44,28 @@
 			remoteGlobalIDString = 9C89EA5C2AF9A8E100E794FA;
 			remoteInfo = MonoTestApp;
 		};
+		9C9B08A92B0B1BD400D8831F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C89EA552AF9A8E100E794FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C9B08962B0B1BD400D8831F;
+			remoteInfo = MonoWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C9B08AC2B0B1BD400D8831F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9C9B08AB2B0B1BD400D8831F /* MonoWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9C57CC7E2B0953EA00F795CB /* BatteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
@@ -51,6 +82,16 @@
 		9C89EA7B2AF9A8E200E794FA /* MonoTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppUITests.swift; sourceTree = "<group>"; };
 		9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MonoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9B08992B0B1BD400D8831F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9C9B089B2B0B1BD400D8831F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		9C9B089E2B0B1BD400D8831F /* MonoWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoWidgetBundle.swift; sourceTree = "<group>"; };
+		9C9B08A02B0B1BD400D8831F /* MonoWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		9C9B08A22B0B1BD400D8831F /* MonoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoWidget.swift; sourceTree = "<group>"; };
+		9C9B08A42B0B1BD400D8831F /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		9C9B08A62B0B1BD400D8831F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C9B08A82B0B1BD400D8831F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoCore.swift; sourceTree = "<group>"; };
 		9CD2AC0A2B0000D800695B5D /* mapviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapviewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +117,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C9B08942B0B1BD400D8831F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9B089C2B0B1BD400D8831F /* SwiftUI.framework in Frameworks */,
+				9C9B089A2B0B1BD400D8831F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +135,8 @@
 				9C89EA5F2AF9A8E100E794FA /* MonoTestApp */,
 				9C89EA742AF9A8E200E794FA /* MonoTestAppTests */,
 				9C89EA7E2AF9A8E200E794FA /* MonoTestAppUITests */,
+				9C9B089D2B0B1BD400D8831F /* MonoWidget */,
+				9C9B08982B0B1BD400D8831F /* Frameworks */,
 				9C89EA5E2AF9A8E100E794FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +147,7 @@
 				9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */,
 				9C89EA712AF9A8E200E794FA /* MonoTestAppTests.xctest */,
 				9C89EA7B2AF9A8E200E794FA /* MonoTestAppUITests.xctest */,
+				9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +164,7 @@
 				9C89EA6B2AF9A8E200E794FA /* MonoTestApp.entitlements */,
 				9C89EA6C2AF9A8E200E794FA /* Info.plist */,
 				9C89EA682AF9A8E200E794FA /* Preview Content */,
+				9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */,
 			);
 			path = MonoTestApp;
 			sourceTree = "<group>";
@@ -140,6 +194,28 @@
 			path = MonoTestAppUITests;
 			sourceTree = "<group>";
 		};
+		9C9B08982B0B1BD400D8831F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C9B08992B0B1BD400D8831F /* WidgetKit.framework */,
+				9C9B089B2B0B1BD400D8831F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C9B089D2B0B1BD400D8831F /* MonoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				9C9B089E2B0B1BD400D8831F /* MonoWidgetBundle.swift */,
+				9C9B08A02B0B1BD400D8831F /* MonoWidgetLiveActivity.swift */,
+				9C9B08A22B0B1BD400D8831F /* MonoWidget.swift */,
+				9C9B08A42B0B1BD400D8831F /* AppIntent.swift */,
+				9C9B08A62B0B1BD400D8831F /* Assets.xcassets */,
+				9C9B08A82B0B1BD400D8831F /* Info.plist */,
+			);
+			path = MonoWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,10 +226,12 @@
 				9C89EA592AF9A8E100E794FA /* Sources */,
 				9C89EA5A2AF9A8E100E794FA /* Frameworks */,
 				9C89EA5B2AF9A8E100E794FA /* Resources */,
+				9C9B08AC2B0B1BD400D8831F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9C9B08AA2B0B1BD400D8831F /* PBXTargetDependency */,
 			);
 			name = MonoTestApp;
 			productName = MonoTestApp;
@@ -196,6 +274,23 @@
 			productReference = 9C89EA7B2AF9A8E200E794FA /* MonoTestAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9C9B08962B0B1BD400D8831F /* MonoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C9B08AF2B0B1BD400D8831F /* Build configuration list for PBXNativeTarget "MonoWidgetExtension" */;
+			buildPhases = (
+				9C9B08932B0B1BD400D8831F /* Sources */,
+				9C9B08942B0B1BD400D8831F /* Frameworks */,
+				9C9B08952B0B1BD400D8831F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonoWidgetExtension;
+			productName = MonoWidgetExtension;
+			productReference = 9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -217,6 +312,9 @@
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 9C89EA5C2AF9A8E100E794FA;
 					};
+					9C9B08962B0B1BD400D8831F = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 9C89EA582AF9A8E100E794FA /* Build configuration list for PBXProject "MonoTestApp" */;
@@ -235,6 +333,7 @@
 				9C89EA5C2AF9A8E100E794FA /* MonoTestApp */,
 				9C89EA702AF9A8E200E794FA /* MonoTestAppTests */,
 				9C89EA7A2AF9A8E200E794FA /* MonoTestAppUITests */,
+				9C9B08962B0B1BD400D8831F /* MonoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +362,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C9B08952B0B1BD400D8831F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9B08A72B0B1BD400D8831F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,6 +380,7 @@
 				9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */,
 				9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */,
 				9C89EA652AF9A8E100E794FA /* Item.swift in Sources */,
+				9C9B08B12B0B1BFC00D8831F /* MonoCore.swift in Sources */,
 				9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */,
 				9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */,
 			);
@@ -295,6 +403,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C9B08932B0B1BD400D8831F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9B089F2B0B1BD400D8831F /* MonoWidgetBundle.swift in Sources */,
+				9C9B08A52B0B1BD400D8831F /* AppIntent.swift in Sources */,
+				9C9B08A12B0B1BD400D8831F /* MonoWidgetLiveActivity.swift in Sources */,
+				9C9B08A32B0B1BD400D8831F /* MonoWidget.swift in Sources */,
+				9C9B08B22B0B1BFC00D8831F /* MonoCore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -307,6 +427,11 @@
 			isa = PBXTargetDependency;
 			target = 9C89EA5C2AF9A8E100E794FA /* MonoTestApp */;
 			targetProxy = 9C89EA7C2AF9A8E200E794FA /* PBXContainerItemProxy */;
+		};
+		9C9B08AA2B0B1BD400D8831F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C9B08962B0B1BD400D8831F /* MonoWidgetExtension */;
+			targetProxy = 9C9B08A92B0B1BD400D8831F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -433,6 +558,7 @@
 		9C89EA862AF9A8E200E794FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -465,6 +591,7 @@
 		9C89EA872AF9A8E200E794FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -570,6 +697,60 @@
 			};
 			name = Release;
 		};
+		9C9B08AD2B0B1BD400D8831F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jj.MonoTestApp.MonoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C9B08AE2B0B1BD400D8831F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jj.MonoTestApp.MonoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -605,6 +786,15 @@
 			buildConfigurations = (
 				9C89EA8C2AF9A8E200E794FA /* Debug */,
 				9C89EA8D2AF9A8E200E794FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C9B08AF2B0B1BD400D8831F /* Build configuration list for PBXNativeTarget "MonoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C9B08AD2B0B1BD400D8831F /* Debug */,
+				9C9B08AE2B0B1BD400D8831F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
