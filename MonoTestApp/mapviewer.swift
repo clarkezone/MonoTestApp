@@ -3,11 +3,30 @@ import MapKit
 import Foundation
 
 struct MapView: View {
-//    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+    //    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @Binding public var currentRegion: MKCoordinateRegion
-
+    
     var body: some View{
         Map(coordinateRegion: $currentRegion).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct PointEditorView: View {
+    @State var sliderPosition: ClosedRange<Float>
+    var bufferCount: Int
+    
+    init(pr: Int) {
+        if pr > 0 {
+            bufferCount = pr
+        } else {
+            bufferCount = 2
+        }
+        sliderPosition = 1...Float(bufferCount)
+    }
+    
+    var body: some View {
+        Text("PointEditorView \(bufferCount)")
+        RangedSliderView(value: $sliderPosition, bounds: 1...bufferCount).padding(42)
     }
 }
 
@@ -28,7 +47,7 @@ struct GeoQueryArguments : Codable {
 struct myover : View {
     @Binding var foo: String
     var body: some View {
-     Text("\(foo)")   
+        Text("\(foo)")   
     }
 }
 
@@ -76,7 +95,7 @@ struct FullMapView: View {
     //extract
     @State private var showingEditPopover = false 
     @State var sliderPosition: ClosedRange<Float> = 3...8
-
+    
     func lasthour() {
         startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
         endDate = Date()
@@ -87,12 +106,12 @@ struct FullMapView: View {
         self.currentPath = []
         
         let shared: MonoCoreShared = MonoCoreShared()
-       
+        
         Task {
             do {
                 let nowcoords = try await shared.getCurrentDetails()
                 await MainActor.run {
-                
+                    
                     batteryLevel = CGFloat(floatLiteral: nowcoords.batterylevel)
                     city = nowcoords.city
                     neighborhood = nowcoords.neighborhood
@@ -110,7 +129,7 @@ struct FullMapView: View {
             }
         }
     }
-
+    
     
     func getpoints () {
         self.poi = []
@@ -140,7 +159,7 @@ struct FullMapView: View {
             let url = URL(string: "https://geoquery.tail967d8.ts.net/geoquery")!
             
             var args = GeoQueryArguments()
-
+            
             args.QueryStart = startDateInUTC
             args.QueryEnd = endDateInUTC
             
@@ -187,62 +206,63 @@ struct FullMapView: View {
             print("Error info: \(error)")
         }
     }
-
+    
     var body: some View {
-                Map(position: $position) {
-                    ForEach (poi, id: \.self) { result in
-                                                    Marker(item: result)
-                    }
-                   
-                    if self.currentPath.count>0 {
-                        MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
-                    }
+        Map(position: $position) {
+            ForEach (poi, id: \.self) { result in
+                Marker(item: result)
+            }
+            
+            if self.currentPath.count>0 {
+                MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
+            }
+            
+        }
+        .mapStyle(.standard(elevation:.realistic))
+        .safeAreaInset(edge: .bottom){
+            HStack {
+                Spacer()
+                VStack {
+                    DatePicker("", selection: $startDate)
+                    DatePicker("", selection: $endDate)
+                    Button(action: getNowDetails) {
+                        Text("Now")
+                    }.buttonStyle(.borderedProminent)
+                        .popover(isPresented: $showingPopover) {
+                            VStack {
+                                myover(foo: $popoverText)
+                                nowdetails(
+                                    level: $batteryLevel,
+                                    city: $city,
+                                    postal: $postal,
+                                    neighborhood: $neighborhood,
+                                    metroarea: $metroArea,
+                                    phoneStatus: $phoneStatus,
+                                    wifi: $wifi,
+                                    latestTimestamp: $latestTimestamp
+                                )
+                            }.frame(minWidth: 300, maxHeight: 400)
+                                .presentationCompactAdaptation(.popover)
+                        }
+                    Button(action: editPoints) {
+                        Text("Edit")
+                    }.buttonStyle(.borderedProminent)
+                        .popover(isPresented: $showingEditPopover) {
+                            PointEditorView(pr: currentPath.count).frame(minWidth: 300, maxHeight: 400)
+                                .presentationCompactAdaptation(.popover)
+                        }
                     
                 }
-                    .mapStyle(.standard(elevation:.realistic))
-                    .safeAreaInset(edge: .bottom){
-                        HStack {
-                            Spacer()
-                            VStack {
-                                DatePicker("", selection: $startDate)
-                                DatePicker("", selection: $endDate)
-                                Button(action: getNowDetails) {
-                                    Text("Now")
-                                }.buttonStyle(.borderedProminent)
-                                  .popover(isPresented: $showingPopover) {
-                                      VStack {
-                                          myover(foo: $popoverText)
-                                          nowdetails(
-                                            level: $batteryLevel,
-                                            city: $city,
-                                            postal: $postal,
-                                            neighborhood: $neighborhood,
-                                            metroarea: $metroArea,
-                                            phoneStatus: $phoneStatus,
-                                            wifi: $wifi,
-                                            latestTimestamp: $latestTimestamp
-                                          )
-                                      }.frame(minWidth: 300, maxHeight: 400)
-                                          .presentationCompactAdaptation(.popover)
-                                  }
-                                Button(action: editPoints) {
-                                        Text("Edit")
-                                    }.buttonStyle(.borderedProminent)
-                                        .popover(isPresented: $showingEditPopover) {
-                                    RangedSliderView(value: $sliderPosition, bounds: 1...10)
-                                        }
-                                    
-                            }
-                            HStack {
-                                Button(action: getpoints) {
-                                    Text("Get")
-                                }.buttonStyle(.borderedProminent)
-                                Button(action: lasthour) {
-                                    Text("Last hour")
-                                }.buttonStyle(.borderedProminent)
-                            }.padding(10)
-                            Spacer()
-                        }.background(.thinMaterial)
-                    }.onChange(of: poi){position = .automatic}
-            }
+                HStack {
+                    Button(action: getpoints) {
+                        Text("Get")
+                    }.buttonStyle(.borderedProminent)
+                    Button(action: lasthour) {
+                        Text("Last hour")
+                    }.buttonStyle(.borderedProminent)
+                }.padding(10)
+                Spacer()
+            }.background(.thinMaterial)
+        }.onChange(of: poi){position = .automatic}
+    }
 }
