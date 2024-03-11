@@ -6,7 +6,7 @@ struct RangedSliderView: View {
     
     public init(value: Binding<ClosedRange<Float>>, bounds: ClosedRange<Int>) {
         self.currentValue = value
-        self.sliderBounds = bounds
+        self.sliderBounds = bounds 
     }
     
     var body: some View {
