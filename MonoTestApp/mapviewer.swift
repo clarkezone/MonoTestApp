@@ -216,6 +216,8 @@ struct FullMapView: View {
             if self.currentPath.count>0 {
                 MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
             }
+
+            UserAnnotation {}
             
         }
         .mapStyle(.standard(elevation:.realistic))
