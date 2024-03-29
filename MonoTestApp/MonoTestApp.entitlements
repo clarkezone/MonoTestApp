@@ -4,6 +4,8 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
+	<key>com.apple.security.personal-information.location</key>
+	<true/>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.monoapptest</string>
@@ -16,5 +18,7 @@
 	<true/>
 	<key>com.apple.security.files.user-selected.read-only</key>
 	<true/>
+    <key>com.apple.security.personal-information.location</key>
+    <true/>
 </dict>
 </plist>
