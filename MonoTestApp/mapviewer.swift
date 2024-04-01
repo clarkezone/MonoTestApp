@@ -73,8 +73,22 @@ struct nowdetails : View {
     }
 }
 
+@MainActor class LocationsHandler: ObservableObject {
+    
+    static let shared = LocationsHandler()
+    public let manager: CLLocationManager
+
+    init() {
+        self.manager = CLLocationManager()
+        if self.manager.authorizationStatus == .notDetermined {
+            self.manager.requestWhenInUseAuthorization()
+        }
+    }
+}
+
 @available(iOS 17.0, *)
 struct FullMapView: View {
+    @ObservedObject var locationsHandler = LocationsHandler.shared
     @State private var startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
     @State private var endDate = Date()
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
@@ -216,9 +230,13 @@ struct FullMapView: View {
             if self.currentPath.count>0 {
                 MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
             }
-
-            UserAnnotation {}
+            UserAnnotation ()
             
+        }
+        .mapControls{
+            MapUserLocationButton()
+            MapCompass()
+            MapScaleView()
         }
         .mapStyle(.standard(elevation:.realistic))
         .safeAreaInset(edge: .bottom){
