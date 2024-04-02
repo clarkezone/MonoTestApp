@@ -93,7 +93,7 @@ struct FullMapView: View {
     @State private var endDate = Date()
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
     @State private var poi: [MKMapItem] = []
-    @State private var position: MapCameraPosition = .automatic
+    
     @State private var currentPath: [CLLocationCoordinate2D] = []
     @State private var showingPopover = false 
     @State private var popoverText: String = ""
@@ -105,6 +105,13 @@ struct FullMapView: View {
     @State private var postal: String = ""
     @State private var wifi: String = ""
     @State private var latestTimestamp: Date = Date.distantPast
+    
+    @State private var position: MapCameraPosition = .userLocation(followsHeading: true, fallback: .automatic)
+    @State private var visibleRegion: MKCoordinateRegion?
+    @State private var searchResults: [MKMapItem] = []
+    @State private var selectedResult: MKMapItem?
+    @State private var route: MKRoute?
+
     
     //extract
     @State private var showingEditPopover = false 
@@ -227,6 +234,11 @@ struct FullMapView: View {
                 Marker(item: result)
             }
             
+            ForEach(searchResults, id: \.self) {result in
+                Marker(item: result)
+            }
+            .annotationTitles(.hidden)
+            
             if self.currentPath.count>0 {
                 MapPolyline(coordinates: self.currentPath, contourStyle: .geodesic).stroke(.blue, lineWidth: 2)
             }
@@ -238,11 +250,20 @@ struct FullMapView: View {
             MapCompass()
             MapScaleView()
         }
+        .onChange(of: searchResults) {
+            withAnimation{
+                position = .automatic
+           }
+        }.onMapCameraChange { context in
+            visibleRegion = context.region
+        }
         .mapStyle(.standard(elevation:.realistic))
         .safeAreaInset(edge: .bottom){
             HStack {
                 Spacer()
                 VStack {
+                    MapButtons(position: $position, searchResults: $searchResults, visibleRegion: visibleRegion)
+                        .padding(.top)
                     DatePicker("", selection: $startDate)
                     DatePicker("", selection: $endDate)
                     Button(action: getNowDetails) {
