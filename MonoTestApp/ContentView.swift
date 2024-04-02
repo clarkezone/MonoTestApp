@@ -8,6 +8,21 @@
 import SwiftUI
 import SwiftData
 
+struct TestView: View {
+    
+    var body: some View {
+        Text("Clarkezone")
+    }
+}
+
+struct TestView2: View {
+    
+    var body: some View {
+        Text("Clarkezone 2")
+    }
+}
+
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
@@ -15,16 +30,26 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Hello")
-                        //Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text("Hello")
-                        //Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+                NavigationLink {
+                    TestView()
+                } label : {
+                    Text("Link 1")
                 }
-                .onDelete(perform: deleteItems)
+                NavigationLink {
+                    FullMapView()
+                } label : {
+                    Text("MapView")
+                }
+//                ForEach(items) { item in
+//                    NavigationLink {
+//                        Text("Hello \(item.name)")
+//                        //Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+//                    } label: {
+//                        Text("Hello \(item.name)")
+//                        //Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+//                    }
+//                }
+//                .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -43,7 +68,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = Item(timestamp: Date(), name: "Item")
             modelContext.insert(newItem)
         }
     }
