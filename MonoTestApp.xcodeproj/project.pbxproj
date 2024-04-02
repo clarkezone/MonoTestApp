@@ -17,6 +17,7 @@
 		9C89EA762AF9A8E200E794FA /* MonoTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA752AF9A8E200E794FA /* MonoTestAppTests.swift */; };
 		9C89EA802AF9A8E200E794FA /* MonoTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */; };
 		9C89EA822AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */; };
+		9C96CFF62BBCC82E00C3F8C8 /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96CFF52BBCC82E00C3F8C8 /* Sliders */; };
 		9C9B089A2B0B1BD400D8831F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B08992B0B1BD400D8831F /* WidgetKit.framework */; };
 		9C9B089C2B0B1BD400D8831F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B089B2B0B1BD400D8831F /* SwiftUI.framework */; };
 		9C9B089F2B0B1BD400D8831F /* MonoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B089E2B0B1BD400D8831F /* MonoWidgetBundle.swift */; };
@@ -104,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C96CFF62BBCC82E00C3F8C8 /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +242,9 @@
 				9C9B08AA2B0B1BD400D8831F /* PBXTargetDependency */,
 			);
 			name = MonoTestApp;
+			packageProductDependencies = (
+				9C96CFF52BBCC82E00C3F8C8 /* Sliders */,
+			);
 			productName = MonoTestApp;
 			productReference = 9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +337,9 @@
 				Base,
 			);
 			mainGroup = 9C89EA542AF9A8E100E794FA;
+			packageReferences = (
+				9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
+			);
 			productRefGroup = 9C89EA5E2AF9A8E100E794FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -596,6 +604,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -633,6 +642,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -818,6 +828,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:spacenation/swiftui-sliders.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C96CFF52BBCC82E00C3F8C8 /* Sliders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
+			productName = Sliders;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C89EA552AF9A8E100E794FA /* Project object */;
 }

@@ -6,22 +6,23 @@
 //
 
 import SwiftUI
+import Sliders
 import SwiftData
 
 struct TestView: View {
+    @State var value = 0.5
+    @State var range = 0.2...0.8
+    @State var x = 0.5
+    @State var y = 0.5
     
     var body: some View {
-        Text("Clarkezone")
+        Group {
+            ValueSlider(value: $value)
+            RangeSlider(range: $range)
+            PointSlider(x: $x, y: $y)
+        }
     }
 }
-
-struct TestView2: View {
-    
-    var body: some View {
-        Text("Clarkezone 2")
-    }
-}
-
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
