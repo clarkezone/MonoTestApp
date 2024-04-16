@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C1AFCC92B16F38D00574C88 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1AFCC82B16F38D00574C88 /* RangeSlider.swift */; };
 		9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C57CC7E2B0953EA00F795CB /* BatteryView.swift */; };
+		9C84867F2BCEDE9400BC5A06 /* LoggerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */; };
 		9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */; };
 		9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA622AF9A8E100E794FA /* ContentView.swift */; };
 		9C89EA652AF9A8E100E794FA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA642AF9A8E100E794FA /* Item.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		9C1AFCC82B16F38D00574C88 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		9C57CC7E2B0953EA00F795CB /* BatteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
+		9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUI.swift; sourceTree = "<group>"; };
 		9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppApp.swift; sourceTree = "<group>"; };
 		9C89EA622AF9A8E100E794FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				9C89EA682AF9A8E200E794FA /* Preview Content */,
 				9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */,
 				9CEDBC5B2BBC81F8002256AB /* MapButtons.swift */,
+				9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */,
 			);
 			path = MonoTestApp;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */,
 				9C1AFCC92B16F38D00574C88 /* RangeSlider.swift in Sources */,
 				9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */,
+				9C84867F2BCEDE9400BC5A06 /* LoggerUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

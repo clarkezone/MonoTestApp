@@ -32,14 +32,14 @@ struct ContentView: View {
         NavigationSplitView {
             List {
                 NavigationLink {
-                    TestView()
+                    TrackerView()
                 } label : {
-                    Text("Link 1")
+                    Text("LoggerUI")
                 }
                 NavigationLink {
                     FullMapView()
                 } label : {
-                    Text("MapView")
+                    Text("QueryUI")
                 }
 //                ForEach(items) { item in
 //                    NavigationLink {
