@@ -6,23 +6,7 @@
 //
 
 import SwiftUI
-import Sliders
 import SwiftData
-
-struct TestView: View {
-    @State var value = 0.5
-    @State var range = 0.2...0.8
-    @State var x = 0.5
-    @State var y = 0.5
-    
-    var body: some View {
-        Group {
-            ValueSlider(value: $value)
-            RangeSlider(range: $range)
-            PointSlider(x: $x, y: $y)
-        }
-    }
-}
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -32,14 +16,43 @@ struct ContentView: View {
         NavigationSplitView {
             List {
                 NavigationLink {
+                    #if os(iOS)
                     TrackerView()
+                    #endif
                 } label : {
-                    Text("LoggerUI")
+                    Text("Bg activity, interactive widget, live activity")
                 }
                 NavigationLink {
                     FullMapView()
                 } label : {
-                    Text("QueryUI")
+                    Text("QueryUI - Mapview")
+                }
+                NavigationLink {
+                    ShareplayView()
+                } label : {
+                    Text("Shareplay")
+                }
+                NavigationLink {
+                    PhotoView()
+                } label : {
+                    Text("Photos")
+                }
+                NavigationLink {
+                    SwiftDataView()
+                } label : {
+                    Text("SwiftData")
+                }
+                NavigationLink {
+                    #if os(iOS)
+                    //SliderBindingTestView()
+                    #endif
+                } label : {
+                    Text("SliderBinding")
+                }
+                NavigationLink {
+                    RiveTestView()
+                } label : {
+                    Text("Rive")
                 }
 //                ForEach(items) { item in
 //                    NavigationLink {
@@ -54,7 +67,9 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+                    #if os(iOS)
                     EditButton()
+                    #endif
                 }
                 ToolbarItem {
                     Button(action: addItem) {

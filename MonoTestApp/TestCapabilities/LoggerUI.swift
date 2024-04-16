@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 struct TrackerView: View {
     @State private var sendInterval: Double = 1
     @State private var walkDuration: Double = 0
@@ -106,3 +107,4 @@ struct TrackerView_Previews: PreviewProvider {
         TrackerView()
     }
 }
+#endif

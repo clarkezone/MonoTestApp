@@ -26,7 +26,9 @@ struct PointEditorView: View {
     
     var body: some View {
         Text("PointEditorView \(bufferCount)")
-        RangedSliderView(value: $sliderPosition, bounds: 1...bufferCount).padding(42)
+        #if os(iOS)
+        //RangedSliderView(value: $sliderPosition, bounds: 1...bufferCount).padding(42)
+        #endif
     }
 }
 
@@ -264,11 +266,16 @@ struct FullMapView: View {
                 VStack {
                     MapButtons(position: $position, searchResults: $searchResults, visibleRegion: visibleRegion)
                         .padding(.top)
+                    #if os(iOS)
                     DatePicker("", selection: $startDate)
                     DatePicker("", selection: $endDate)
+                    #endif
                     Button(action: getNowDetails) {
                         Text("Now")
-                    }.buttonStyle(.borderedProminent)
+                    }
+#if os(iOS)
+                    .buttonStyle(.borderedProminent)
+
                         .popover(isPresented: $showingPopover) {
                             VStack {
                                 myover(foo: $popoverText)
@@ -285,13 +292,17 @@ struct FullMapView: View {
                             }.frame(minWidth: 300, maxHeight: 400)
                                 .presentationCompactAdaptation(.popover)
                         }
+                    #endif
                     Button(action: editPoints) {
                         Text("Edit")
-                    }.buttonStyle(.borderedProminent)
+                    }
+                    #if os(iOS)
+                    .buttonStyle(.borderedProminent)
                         .popover(isPresented: $showingEditPopover) {
                             PointEditorView(pr: currentPath.count).frame(minWidth: 300, maxHeight: 400)
                                 .presentationCompactAdaptation(.popover)
                         }
+                    #endif
                     
                 }
                 HStack {

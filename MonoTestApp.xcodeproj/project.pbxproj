@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C1AFCC92B16F38D00574C88 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1AFCC82B16F38D00574C88 /* RangeSlider.swift */; };
 		9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C57CC7E2B0953EA00F795CB /* BatteryView.swift */; };
 		9C84867F2BCEDE9400BC5A06 /* LoggerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */; };
 		9C8486812BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486802BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition */; };
+		9C8486842BCF0DF800BC5A06 /* ShareplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486832BCF0DF800BC5A06 /* ShareplayView.swift */; };
+		9C8486862BCF0E2800BC5A06 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486852BCF0E2800BC5A06 /* PhotoView.swift */; };
+		9C8486882BCF0EA100BC5A06 /* SwiftDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486872BCF0EA100BC5A06 /* SwiftDataView.swift */; };
+		9C84868A2BCF0F2000BC5A06 /* SliderBindingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486892BCF0F2000BC5A06 /* SliderBindingTestView.swift */; };
+		9C84868C2BCF0FF900BC5A06 /* RiveTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84868B2BCF0FF900BC5A06 /* RiveTestView.swift */; };
+		9C8486952BCF1A9800BC5A06 /* MonoTestWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9C8486942BCF1A9800BC5A06 /* MonoTestWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9C84869A2BCF1A9800BC5A06 /* MonoTestWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486992BCF1A9800BC5A06 /* MonoTestWatchApp.swift */; };
+		9C84869C2BCF1A9800BC5A06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84869B2BCF1A9800BC5A06 /* ContentView.swift */; };
+		9C84869E2BCF1A9A00BC5A06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C84869D2BCF1A9A00BC5A06 /* Assets.xcassets */; };
+		9C8486A12BCF1A9A00BC5A06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8486A02BCF1A9A00BC5A06 /* Preview Assets.xcassets */; };
 		9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */; };
 		9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA622AF9A8E100E794FA /* ContentView.swift */; };
 		9C89EA652AF9A8E100E794FA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA642AF9A8E100E794FA /* Item.swift */; };
@@ -19,7 +28,6 @@
 		9C89EA762AF9A8E200E794FA /* MonoTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA752AF9A8E200E794FA /* MonoTestAppTests.swift */; };
 		9C89EA802AF9A8E200E794FA /* MonoTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA7F2AF9A8E200E794FA /* MonoTestAppUITests.swift */; };
 		9C89EA822AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89EA812AF9A8E200E794FA /* MonoTestAppUITestsLaunchTests.swift */; };
-		9C96CFF62BBCC82E00C3F8C8 /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96CFF52BBCC82E00C3F8C8 /* Sliders */; };
 		9C9B089A2B0B1BD400D8831F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B08992B0B1BD400D8831F /* WidgetKit.framework */; };
 		9C9B089C2B0B1BD400D8831F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9B089B2B0B1BD400D8831F /* SwiftUI.framework */; };
 		9C9B089F2B0B1BD400D8831F /* MonoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B089E2B0B1BD400D8831F /* MonoWidgetBundle.swift */; };
@@ -27,7 +35,7 @@
 		9C9B08A32B0B1BD400D8831F /* MonoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08A22B0B1BD400D8831F /* MonoWidget.swift */; };
 		9C9B08A52B0B1BD400D8831F /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08A42B0B1BD400D8831F /* AppIntent.swift */; };
 		9C9B08A72B0B1BD400D8831F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B08A62B0B1BD400D8831F /* Assets.xcassets */; };
-		9C9B08AB2B0B1BD400D8831F /* MonoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9C9B08AB2B0B1BD400D8831F /* MonoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */; platformFilters = (ios, macos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9C9B08B12B0B1BFC00D8831F /* MonoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */; };
 		9C9B08B22B0B1BFC00D8831F /* MonoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */; };
 		9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2AC0A2B0000D800695B5D /* mapviewer.swift */; };
@@ -35,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C8486962BCF1A9800BC5A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C89EA552AF9A8E100E794FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8486932BCF1A9800BC5A06;
+			remoteInfo = "MonoTestWatch Watch App";
+		};
 		9C89EA722AF9A8E200E794FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C89EA552AF9A8E100E794FA /* Project object */;
@@ -59,6 +74,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9C8486A52BCF1A9A00BC5A06 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9C8486952BCF1A9800BC5A06 /* MonoTestWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C9B08AC2B0B1BD400D8831F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +99,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C1AFCC82B16F38D00574C88 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		9C57CC7E2B0953EA00F795CB /* BatteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUI.swift; sourceTree = "<group>"; };
 		9C8486802BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SirikitIntents.intentdefinition; sourceTree = "<group>"; };
+		9C8486832BCF0DF800BC5A06 /* ShareplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareplayView.swift; sourceTree = "<group>"; };
+		9C8486852BCF0E2800BC5A06 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		9C8486872BCF0EA100BC5A06 /* SwiftDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataView.swift; sourceTree = "<group>"; };
+		9C8486892BCF0F2000BC5A06 /* SliderBindingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderBindingTestView.swift; sourceTree = "<group>"; };
+		9C84868B2BCF0FF900BC5A06 /* RiveTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveTestView.swift; sourceTree = "<group>"; };
+		9C84868F2BCF1A9800BC5A06 /* MonoTestWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoTestWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8486942BCF1A9800BC5A06 /* MonoTestWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MonoTestWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8486992BCF1A9800BC5A06 /* MonoTestWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestWatchApp.swift; sourceTree = "<group>"; };
+		9C84869B2BCF1A9800BC5A06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9C84869D2BCF1A9A00BC5A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C8486A02BCF1A9A00BC5A06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoTestAppApp.swift; sourceTree = "<group>"; };
 		9C89EA622AF9A8E100E794FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,11 +141,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C8486912BCF1A9800BC5A06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C89EA5A2AF9A8E100E794FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C96CFF62BBCC82E00C3F8C8 /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +181,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C8486822BCF0DE100BC5A06 /* TestCapabilities */ = {
+			isa = PBXGroup;
+			children = (
+				9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */,
+				9C8486832BCF0DF800BC5A06 /* ShareplayView.swift */,
+				9C8486852BCF0E2800BC5A06 /* PhotoView.swift */,
+				9C8486872BCF0EA100BC5A06 /* SwiftDataView.swift */,
+				9C8486892BCF0F2000BC5A06 /* SliderBindingTestView.swift */,
+				9C84868B2BCF0FF900BC5A06 /* RiveTestView.swift */,
+			);
+			path = TestCapabilities;
+			sourceTree = "<group>";
+		};
+		9C8486982BCF1A9800BC5A06 /* MonoTestWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				9C8486992BCF1A9800BC5A06 /* MonoTestWatchApp.swift */,
+				9C84869B2BCF1A9800BC5A06 /* ContentView.swift */,
+				9C84869D2BCF1A9A00BC5A06 /* Assets.xcassets */,
+				9C84869F2BCF1A9A00BC5A06 /* Preview Content */,
+			);
+			path = "MonoTestWatch Watch App";
+			sourceTree = "<group>";
+		};
+		9C84869F2BCF1A9A00BC5A06 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9C8486A02BCF1A9A00BC5A06 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		9C89EA542AF9A8E100E794FA = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +220,7 @@
 				9C89EA742AF9A8E200E794FA /* MonoTestAppTests */,
 				9C89EA7E2AF9A8E200E794FA /* MonoTestAppUITests */,
 				9C9B089D2B0B1BD400D8831F /* MonoWidget */,
+				9C8486982BCF1A9800BC5A06 /* MonoTestWatch Watch App */,
 				9C9B08982B0B1BD400D8831F /* Frameworks */,
 				9C89EA5E2AF9A8E100E794FA /* Products */,
 			);
@@ -158,6 +233,8 @@
 				9C89EA712AF9A8E200E794FA /* MonoTestAppTests.xctest */,
 				9C89EA7B2AF9A8E200E794FA /* MonoTestAppUITests.xctest */,
 				9C9B08972B0B1BD400D8831F /* MonoWidgetExtension.appex */,
+				9C84868F2BCF1A9800BC5A06 /* MonoTestWatch.app */,
+				9C8486942BCF1A9800BC5A06 /* MonoTestWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,9 +242,10 @@
 		9C89EA5F2AF9A8E100E794FA /* MonoTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				9C1AFCC82B16F38D00574C88 /* RangeSlider.swift */,
+				9C8486822BCF0DE100BC5A06 /* TestCapabilities */,
 				9C57CC7E2B0953EA00F795CB /* BatteryView.swift */,
 				9CD2AC0A2B0000D800695B5D /* mapviewer.swift */,
+				9CEDBC5B2BBC81F8002256AB /* MapButtons.swift */,
 				9C89EA602AF9A8E100E794FA /* MonoTestAppApp.swift */,
 				9C89EA622AF9A8E100E794FA /* ContentView.swift */,
 				9C89EA642AF9A8E100E794FA /* Item.swift */,
@@ -176,8 +254,6 @@
 				9C89EA6C2AF9A8E200E794FA /* Info.plist */,
 				9C89EA682AF9A8E200E794FA /* Preview Content */,
 				9C9B08B02B0B1BFC00D8831F /* MonoCore.swift */,
-				9CEDBC5B2BBC81F8002256AB /* MapButtons.swift */,
-				9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */,
 				9C8486802BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition */,
 			);
 			path = MonoTestApp;
@@ -233,6 +309,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C84868E2BCF1A9800BC5A06 /* MonoTestWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8486A62BCF1A9A00BC5A06 /* Build configuration list for PBXNativeTarget "MonoTestWatch" */;
+			buildPhases = (
+				9C84868D2BCF1A9800BC5A06 /* Resources */,
+				9C8486A52BCF1A9A00BC5A06 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8486972BCF1A9800BC5A06 /* PBXTargetDependency */,
+			);
+			name = MonoTestWatch;
+			productName = MonoTestWatch;
+			productReference = 9C84868F2BCF1A9800BC5A06 /* MonoTestWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		9C8486932BCF1A9800BC5A06 /* MonoTestWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8486A22BCF1A9A00BC5A06 /* Build configuration list for PBXNativeTarget "MonoTestWatch Watch App" */;
+			buildPhases = (
+				9C8486902BCF1A9800BC5A06 /* Sources */,
+				9C8486912BCF1A9800BC5A06 /* Frameworks */,
+				9C8486922BCF1A9800BC5A06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MonoTestWatch Watch App";
+			productName = "MonoTestWatch Watch App";
+			productReference = 9C8486942BCF1A9800BC5A06 /* MonoTestWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		9C89EA5C2AF9A8E100E794FA /* MonoTestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C89EA852AF9A8E200E794FA /* Build configuration list for PBXNativeTarget "MonoTestApp" */;
@@ -249,7 +359,6 @@
 			);
 			name = MonoTestApp;
 			packageProductDependencies = (
-				9C96CFF52BBCC82E00C3F8C8 /* Sliders */,
 			);
 			productName = MonoTestApp;
 			productReference = 9C89EA5D2AF9A8E100E794FA /* MonoTestApp.app */;
@@ -315,9 +424,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					9C84868E2BCF1A9800BC5A06 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					9C8486932BCF1A9800BC5A06 = {
+						CreatedOnToolsVersion = 15.3;
+					};
 					9C89EA5C2AF9A8E100E794FA = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -344,7 +459,6 @@
 			);
 			mainGroup = 9C89EA542AF9A8E100E794FA;
 			packageReferences = (
-				9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
 			);
 			productRefGroup = 9C89EA5E2AF9A8E100E794FA /* Products */;
 			projectDirPath = "";
@@ -354,11 +468,29 @@
 				9C89EA702AF9A8E200E794FA /* MonoTestAppTests */,
 				9C89EA7A2AF9A8E200E794FA /* MonoTestAppUITests */,
 				9C9B08962B0B1BD400D8831F /* MonoWidgetExtension */,
+				9C84868E2BCF1A9800BC5A06 /* MonoTestWatch */,
+				9C8486932BCF1A9800BC5A06 /* MonoTestWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C84868D2BCF1A9800BC5A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8486922BCF1A9800BC5A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8486A12BCF1A9A00BC5A06 /* Preview Assets.xcassets in Resources */,
+				9C84869E2BCF1A9A00BC5A06 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C89EA5B2AF9A8E100E794FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,18 +525,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C8486902BCF1A9800BC5A06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C84869C2BCF1A9800BC5A06 /* ContentView.swift in Sources */,
+				9C84869A2BCF1A9800BC5A06 /* MonoTestWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C89EA592AF9A8E100E794FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9CEDBC5C2BBC81F8002256AB /* MapButtons.swift in Sources */,
+				9C8486842BCF0DF800BC5A06 /* ShareplayView.swift in Sources */,
 				9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */,
+				9C8486862BCF0E2800BC5A06 /* PhotoView.swift in Sources */,
 				9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */,
+				9C84868A2BCF0F2000BC5A06 /* SliderBindingTestView.swift in Sources */,
 				9C89EA652AF9A8E100E794FA /* Item.swift in Sources */,
 				9C9B08B12B0B1BFC00D8831F /* MonoCore.swift in Sources */,
 				9CD2AC0B2B0000D800695B5D /* mapviewer.swift in Sources */,
+				9C8486882BCF0EA100BC5A06 /* SwiftDataView.swift in Sources */,
+				9C84868C2BCF0FF900BC5A06 /* RiveTestView.swift in Sources */,
 				9C8486812BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition in Sources */,
-				9C1AFCC92B16F38D00574C88 /* RangeSlider.swift in Sources */,
 				9C89EA612AF9A8E100E794FA /* MonoTestAppApp.swift in Sources */,
 				9C84867F2BCEDE9400BC5A06 /* LoggerUI.swift in Sources */,
 			);
@@ -442,6 +587,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C8486972BCF1A9800BC5A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8486932BCF1A9800BC5A06 /* MonoTestWatch Watch App */;
+			targetProxy = 9C8486962BCF1A9800BC5A06 /* PBXContainerItemProxy */;
+		};
 		9C89EA732AF9A8E200E794FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9C89EA5C2AF9A8E100E794FA /* MonoTestApp */;
@@ -454,12 +604,106 @@
 		};
 		9C9B08AA2B0B1BD400D8831F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+				macos,
+			);
 			target = 9C9B08962B0B1BD400D8831F /* MonoWidgetExtension */;
 			targetProxy = 9C9B08A92B0B1BD400D8831F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		9C8486A32BCF1A9A00BC5A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MonoTestWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoTestWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ObectivePixel.MonoTestWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		9C8486A42BCF1A9A00BC5A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MonoTestWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoTestWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ObectivePixel.MonoTestWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		9C8486A72BCF1A9A00BC5A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoTestWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ObectivePixel.MonoTestWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9C8486A82BCF1A9A00BC5A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				INFOPLIST_KEY_CFBundleDisplayName = MonoTestWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ObectivePixel.MonoTestWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		9C89EA832AF9A8E200E794FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -609,13 +853,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jj.MonoTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 			};
 			name = Debug;
 		};
@@ -647,13 +891,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jj.MonoTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 			};
 			name = Release;
 		};
@@ -790,6 +1034,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C8486A22BCF1A9A00BC5A06 /* Build configuration list for PBXNativeTarget "MonoTestWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8486A32BCF1A9A00BC5A06 /* Debug */,
+				9C8486A42BCF1A9A00BC5A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8486A62BCF1A9A00BC5A06 /* Build configuration list for PBXNativeTarget "MonoTestWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8486A72BCF1A9A00BC5A06 /* Debug */,
+				9C8486A82BCF1A9A00BC5A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9C89EA582AF9A8E100E794FA /* Build configuration list for PBXProject "MonoTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -836,25 +1098,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:spacenation/swiftui-sliders.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9C96CFF52BBCC82E00C3F8C8 /* Sliders */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C96CFF42BBCC82E00C3F8C8 /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
-			productName = Sliders;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C89EA552AF9A8E100E794FA /* Project object */;
 }
