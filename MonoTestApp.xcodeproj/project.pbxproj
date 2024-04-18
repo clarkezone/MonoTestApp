@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0842842BD16A8800BAC375 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0842832BD16A8800BAC375 /* SettingsView.swift */; };
 		9C57CC7F2B0953EA00F795CB /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C57CC7E2B0953EA00F795CB /* BatteryView.swift */; };
 		9C84867F2BCEDE9400BC5A06 /* LoggerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */; };
 		9C8486812BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9C8486802BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition */; };
@@ -99,6 +100,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C0842832BD16A8800BAC375 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9C57CC7E2B0953EA00F795CB /* BatteryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		9C84867E2BCEDE9400BC5A06 /* LoggerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUI.swift; sourceTree = "<group>"; };
 		9C8486802BCEE3AA00BC5A06 /* SirikitIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SirikitIntents.intentdefinition; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				9C8486872BCF0EA100BC5A06 /* SwiftDataView.swift */,
 				9C8486892BCF0F2000BC5A06 /* SliderBindingTestView.swift */,
 				9C84868B2BCF0FF900BC5A06 /* RiveTestView.swift */,
+				9C0842832BD16A8800BAC375 /* SettingsView.swift */,
 			);
 			path = TestCapabilities;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0842842BD16A8800BAC375 /* SettingsView.swift in Sources */,
 				9CEDBC5C2BBC81F8002256AB /* MapButtons.swift in Sources */,
 				9C8486842BCF0DF800BC5A06 /* ShareplayView.swift in Sources */,
 				9C89EA632AF9A8E100E794FA /* ContentView.swift in Sources */,

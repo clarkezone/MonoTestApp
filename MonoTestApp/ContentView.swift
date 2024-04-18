@@ -9,8 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+//    @Environment(\.modelContext) private var modelContext
+//    @Query private var items: [Item]
+    
+    @State private var activeDetail: String? = nil
 
     var body: some View {
         NavigationSplitView {
@@ -54,48 +56,37 @@ struct ContentView: View {
                 } label : {
                     Text("Rive")
                 }
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Hello \(item.name)")
-//                        //Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-//                    } label: {
-//                        Text("Hello \(item.name)")
-//                        //Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
+                NavigationLink {
+                    SettingsView()
+                } label : {
+                    Text("Settings")
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    #if os(iOS)
-                    EditButton()
-                    #endif
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: gotosettings) {
+                        Label("Settings", systemImage: "gear")
                     }
                 }
             }
         } detail: {
-            Text("Select an item")
+            detailViewSelector()
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date(), name: "Item")
-            modelContext.insert(newItem)
-        }
+    private func gotosettings() {
+        print("Settings button pressed")
+        activeDetail = "settings"
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+    
+    @ViewBuilder
+        private func detailViewSelector() -> some View {
+            if let detail = activeDetail, detail == "settings" {
+                SettingsView()
+            } else {
+                Text("Select an item")
             }
         }
-    }
 }
 
 #Preview {

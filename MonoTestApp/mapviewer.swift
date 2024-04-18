@@ -1,6 +1,7 @@
 import SwiftUI
 import MapKit
 import Foundation
+import SwiftData
 
 struct MapView: View {
     //    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.4219999, longitude: -122.0840575), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
@@ -114,6 +115,7 @@ struct FullMapView: View {
     @State private var selectedResult: MKMapItem?
     @State private var route: MKRoute?
 
+    @Environment(\.modelContext) private var modelContext
     
     //extract
     @State private var showingEditPopover = false 
@@ -166,6 +168,18 @@ struct FullMapView: View {
     }
     
     func reload() async {
+        let request = FetchDescriptor<AppSettings>()
+        var data = try? modelContext.fetch(request)
+        var da = data!
+        var settings: AppSettings?
+        if da.count > 0 {
+            settings = data?.first
+            print("we have \(da.count) data with value [\(settings?.queryendpointurl)]")
+        } else {
+            //TODO no message
+            return
+        }
+        
         // Get the current timezone and UTC timezone
         let currentTimeZone = TimeZone.current
         
@@ -178,15 +192,18 @@ struct FullMapView: View {
         print("end in UTC: \(endDateInUTC)")
         
         do {
+            var urlstringsettings = settings?.queryendpointurl
             //let url = URL(string: "https://now.clarkezone.dev/geoquery")!
-            let url = URL(string: "https://geoquery.tail967d8.ts.net/geoquery")!
+            //let url = URL(string: "https://geoquery.tail967d8.ts.net/geoquery")!
+            //let url = URL(string: "http://clarkezonedevbox5-tr:5166/geoquery")!
+            let url = URL(string: urlstringsettings!)
             
             var args = GeoQueryArguments()
             
             args.QueryStart = startDateInUTC
             args.QueryEnd = endDateInUTC
             
-            var request = URLRequest(url: url)
+            var request = URLRequest(url: url!)
             request.httpMethod = "POST"
             
             let encoder = JSONEncoder()
@@ -202,6 +219,9 @@ struct FullMapView: View {
             let (respdata, _) = try await URLSession.shared.data(for: request)
             //        print (response)
             //print(String(data: respdata, encoding: .utf8)!)
+            
+          // because apple
+        //https://forums.developer.apple.com/forums/thread/114119
             
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
